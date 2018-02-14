@@ -1,0 +1,12 @@
+Danny Sullivan - PA2 Read Me
+
+HOW TO RUN
+
+This file is compiled by typing "make all" in the file directory with the files. A "life" file is then created. This file is then run by typing in "./life", along with other arguments including the rows, columns, generations, input file, pause, and print. The final line should look as follows: 
+	./life X Y gens input pause print
+in which x, y, and gens are all integers, input is a .txt file, and pause and print are chars (either y or n for yes and no respectively). If yes is chosen for pause, then the original text file will display in the terminal. A keystroke is required to continue going through the game until the final generation is reached, being the one that was input. 
+
+LOOP INVARIANTS
+
+In life.c, a for loop is run on the array curBoard. This is used to allocate memory for the number of columns so there is no error relating to memory. A while loop is used to go through and read the file that was input. This loop gets the number of rows and columns in the file. The loop ends when the end of file is met. Another for loop is run at the end to free the memory that was allocated for the curBoard array. 
+In board.c, there is a nested for loop inside of printStep. This goes through every space on the board and places the x's and o's. At the end of each row, a new line is printed to go to the next row. The function playOne contains several for loops. The first is to allocate the memory for the size of the board for the newBoard array. The next does the same for the sur array, representing the surroundings. The next nested for loop then goes through the newBoard array and the sur array to initialize them. The next nested for loop runs through the board and checks the surroundings for each spot on the board. It records the number of x's in the surrounding. It then uses this in the next nested for loop to apply the rules of the game. This loop goes through each spot on the board and kills cells, births cells, and allows cells to survive based on the rules. The next three nested for loops are for errors. The first compares the newest board to the current board. If they are the same, the error is signaled, and the game ends. The same happens with the second loop, comparing the newest board to the oldest board. The final error loop goes through to see if all the cells have died. If there are no more x's on the board, the game ends. The final for loop frees the memory that had been allocated to the newBoard array.

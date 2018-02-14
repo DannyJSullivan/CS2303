@@ -1,0 +1,1 @@
+game.d: ../game.c

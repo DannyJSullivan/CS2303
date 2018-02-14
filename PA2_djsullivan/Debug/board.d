@@ -1,0 +1,1 @@
+board.d: ../board.c

@@ -1,0 +1,1 @@
+life.d: ../life.c
